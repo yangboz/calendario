@@ -3,7 +3,7 @@
 //  Calendario
 //
 //  Created by zhou Yangbo on 12-10-22.
-//  Copyright __MyCompanyName__ 2012年. All rights reserved.
+//  Copyright GODPAPER 2012年. All rights reserved.
 //
 
 #ifndef __GAME_CONFIG_H

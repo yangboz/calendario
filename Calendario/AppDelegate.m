@@ -3,14 +3,14 @@
 //  Calendario
 //
 //  Created by zhou Yangbo on 12-10-22.
-//  Copyright __MyCompanyName__ 2012年. All rights reserved.
+//  Copyright GODPAPER 2012年. All rights reserved.
 //
 
 #import "cocos2d.h"
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "HelloWorldLayer.h"
+#import "CalendarioLayer.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -110,7 +110,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [HelloWorldLayer scene]];
+	[[CCDirector sharedDirector] runWithScene: [CalendarioLayer scene]];
 }
 
 
