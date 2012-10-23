@@ -83,6 +83,9 @@
         UIRotationGestureRecognizer *rotateGesture = [[[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotateGesture:)] autorelease];
         [rotateGesture setDelegate:self];
         [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:rotateGesture];
+        //---pinch gesture---
+        UIPinchGestureRecognizer *pinchGesture = [[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)] autorelease];
+        [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:pinchGesture];
 	}
 	return self;
 }
@@ -98,6 +101,25 @@
     }
 }
 
+-(IBAction)handlePinchGesture:(UIGestureRecognizer *)sender
+{
+    CGFloat lastScaleFactor = 1.0f;
+    CGFloat factor = [ (UIPinchGestureRecognizer*) sender scale];
+    if ( factor >1) {
+        //Zoom in---
+        sender.view.transform = CGAffineTransformMakeScale(lastScaleFactor + (factor-1), lastScaleFactor + (factor-1));
+    }else {
+        //Zoom out---
+        sender.view.transform = CGAffineTransformMakeScale(lastScaleFactor*factor, lastScaleFactor*factor);
+    }
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        if (factor>1) {
+            lastScaleFactor += factor-1;
+        }else {
+            lastScaleFactor *=factor;
+        }
+    }
+}
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {
