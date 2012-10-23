@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4EFAEBA1636EF84006A7C28 /* calendario_00.png in Resources */ = {isa = PBXBuildFile; fileRef = A4EFAEB91636EF84006A7C28 /* calendario_00.png */; };
+		A4EFAEBD1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EFAEBC1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m */; };
 		A4F2D65D16357A7A003DEA19 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F2D65C16357A7A003DEA19 /* QuartzCore.framework */; };
 		A4F2D65F16357A7A003DEA19 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F2D65E16357A7A003DEA19 /* OpenGLES.framework */; };
 		A4F2D66116357A7A003DEA19 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F2D66016357A7A003DEA19 /* OpenAL.framework */; };
@@ -122,13 +124,15 @@
 		A4F2D7C016357A7C003DEA19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2D7BF16357A7C003DEA19 /* AppDelegate.m */; };
 		A4F2D7C316357A7C003DEA19 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2D7C216357A7C003DEA19 /* RootViewController.m */; };
 		A4F2D7C616357A7C003DEA19 /* CalendarioLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2D7C516357A7C003DEA19 /* CalendarioLayer.m */; };
-		A4F2D7D616358121003DEA19 /* calendario_00.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F2D7CE16358120003DEA19 /* calendario_00.png */; };
 		A4F2D7D816358121003DEA19 /* calendario_01.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F2D7D016358121003DEA19 /* calendario_01.png */; };
 		A4F2D7DA16358121003DEA19 /* calendario_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F2D7D216358121003DEA19 /* calendario_02.png */; };
 		A4F2D7DC16358121003DEA19 /* calendario_03.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F2D7D416358121003DEA19 /* calendario_03.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4EFAEB91636EF84006A7C28 /* calendario_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendario_00.png; sourceTree = "<group>"; };
+		A4EFAEBB1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneFingerRotationGestureRecognizer.h; sourceTree = "<group>"; };
+		A4EFAEBC1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneFingerRotationGestureRecognizer.m; sourceTree = "<group>"; };
 		A4F2D65816357A7A003DEA19 /* Calendario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F2D65C16357A7A003DEA19 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A4F2D65E16357A7A003DEA19 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -364,7 +368,6 @@
 		A4F2D7C416357A7C003DEA19 /* CalendarioLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarioLayer.h; sourceTree = "<group>"; };
 		A4F2D7C516357A7C003DEA19 /* CalendarioLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarioLayer.m; sourceTree = "<group>"; };
 		A4F2D7C716357A7C003DEA19 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
-		A4F2D7CE16358120003DEA19 /* calendario_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendario_00.png; sourceTree = "<group>"; };
 		A4F2D7D016358121003DEA19 /* calendario_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendario_01.png; sourceTree = "<group>"; };
 		A4F2D7D216358121003DEA19 /* calendario_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendario_02.png; sourceTree = "<group>"; };
 		A4F2D7D416358121003DEA19 /* calendario_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendario_03.png; sourceTree = "<group>"; };
@@ -424,6 +427,8 @@
 		A4F2D66C16357A7A003DEA19 /* Calendario */ = {
 			isa = PBXGroup;
 			children = (
+				A4EFAEBB1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.h */,
+				A4EFAEBC1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m */,
 				A4F2D7BE16357A7C003DEA19 /* AppDelegate.h */,
 				A4F2D7BF16357A7C003DEA19 /* AppDelegate.m */,
 				A4F2D7C116357A7C003DEA19 /* RootViewController.h */,
@@ -441,7 +446,7 @@
 		A4F2D66D16357A7A003DEA19 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A4F2D7CE16358120003DEA19 /* calendario_00.png */,
+				A4EFAEB91636EF84006A7C28 /* calendario_00.png */,
 				A4F2D7D016358121003DEA19 /* calendario_01.png */,
 				A4F2D7D216358121003DEA19 /* calendario_02.png */,
 				A4F2D7D416358121003DEA19 /* calendario_03.png */,
@@ -830,10 +835,10 @@
 				A4F2D67B16357A7A003DEA19 /* Icon.png in Resources */,
 				A4F2D67D16357A7A003DEA19 /* Icon@2x.png in Resources */,
 				A4F2D68016357A7A003DEA19 /* iTunesArtwork in Resources */,
-				A4F2D7D616358121003DEA19 /* calendario_00.png in Resources */,
 				A4F2D7D816358121003DEA19 /* calendario_01.png in Resources */,
 				A4F2D7DA16358121003DEA19 /* calendario_02.png in Resources */,
 				A4F2D7DC16358121003DEA19 /* calendario_03.png in Resources */,
+				A4EFAEBA1636EF84006A7C28 /* calendario_00.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,6 +947,7 @@
 				A4F2D7C016357A7C003DEA19 /* AppDelegate.m in Sources */,
 				A4F2D7C316357A7C003DEA19 /* RootViewController.m in Sources */,
 				A4F2D7C616357A7C003DEA19 /* CalendarioLayer.m in Sources */,
+				A4EFAEBD1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,9 +9,30 @@
 
 // Import the interfaces
 #import "CalendarioLayer.h"
+//
 
 // CalendarioLayer implementation
 @implementation CalendarioLayer
+
+//@interface CalendarioLayer ()
+//{
+ CGFloat imageAngle;
+ OneFingerRotationGestureRecognizer *gestureRecognizer;
+//
+ UIImageView *image;
+ UIImage *img_calendario_00;
+ UIImage *img_calendario_01;
+ UIImage *img_calendario_02;
+ UIImage *img_calendario_03;
+ CCSprite *calendario_00;
+ CCSprite *calendario_01;
+ CCSprite *calendario_02;
+ CCSprite *calendario_03;    
+//}
+
+//- (void) updateTextDisplay;
+//- (void) setupGestureRecognizer;
+//@end
 
 +(CCScene *) scene
 {
@@ -55,26 +76,26 @@
 //        foo.image = [UIImage imageNamed:@"earth.jpg"];
 //        foo.contentMode = UIViewContentModeScaleAspectFit;
 //        foo.clipsToBounds = YES;
-        UIImage *img_calendario_00 = [UIImage imageNamed:@"calendario_00.png"];
-        CCSprite *calendario_00 =  [[CCSprite alloc] initWithCGImage: [img_calendario_00 CGImage] key: @"calendario_00"];
+        img_calendario_00 = [UIImage imageNamed:@"calendario_00.png"];
+        calendario_00 =  [[CCSprite alloc] initWithCGImage: [img_calendario_00 CGImage] key: @"calendario_00"];
         [self addChild:calendario_00];
         calendario_00.position = ccp(screenSize.width/2.0f,screenSize.height/2.0f);
         
         //
-        UIImage *img_calendario_01 = [UIImage imageNamed:@"calendario_01.png"];
-        CCSprite *calendario_01 =  [[CCSprite alloc] initWithCGImage: [img_calendario_01 CGImage] key: @"calendario_01"];
+        img_calendario_01 = [UIImage imageNamed:@"calendario_01.png"];
+        calendario_01 =  [[CCSprite alloc] initWithCGImage: [img_calendario_01 CGImage] key: @"calendario_01"];
         [self addChild:calendario_01];
         calendario_01.position = ccp(screenSize.width/2.0f,screenSize.height/2.0f);
         
         //
-        UIImage *img_calendario_02 = [UIImage imageNamed:@"calendario_02.png"];
-        CCSprite *calendario_02 =  [[CCSprite alloc] initWithCGImage: [img_calendario_02 CGImage] key: @"calendario_02"];
+        img_calendario_02 = [UIImage imageNamed:@"calendario_02.png"];
+        calendario_02 =  [[CCSprite alloc] initWithCGImage: [img_calendario_02 CGImage] key: @"calendario_02"];
         [self addChild:calendario_02];
         calendario_02.position = ccp(screenSize.width/2.0f,screenSize.height/2.0f);
         
         //
-        UIImage *img_calendario_03 = [UIImage imageNamed:@"calendario_03.png"];
-        CCSprite *calendario_03 =  [[CCSprite alloc] initWithCGImage: [img_calendario_03 CGImage] key: @"calendario_03"];
+        img_calendario_03 = [UIImage imageNamed:@"calendario_03.png"];
+        calendario_03 =  [[CCSprite alloc] initWithCGImage: [img_calendario_03 CGImage] key: @"calendario_03"];
         [self addChild:calendario_03];
         calendario_03.position = ccp(screenSize.width/2.0f,screenSize.height/2.0f);
         
@@ -93,7 +114,7 @@
 -(IBAction)handleRotateGesture:(UIGestureRecognizer *)sender
 {
     CGFloat netRotation = 0.0f;
-    CGFloat rotation = [(UIRotationGestureRecognizer *)sender rotation];
+    CGFloat rotation = CC_RADIANS_TO_DEGREES([(UIRotationGestureRecognizer *)sender rotation]);
     CGAffineTransform transform = CGAffineTransformMakeRotation(rotation+netRotation);
     sender.view.transform = transform;
     if (sender.state == UIGestureRecognizerStateEnded) {
@@ -120,6 +141,26 @@
         }
     }
 }
+
+// Addes gesture recognizer to the view (or any other parent view of image. Calculates midPoint
+// and radius, based on the image position and dimension.
+- (void) setupGestureRecognizer
+{
+    // calculate center and radius of the control
+    CGPoint midPoint = CGPointMake(calendario_01.position.x + img_calendario_00.size.width / 2,
+                                   calendario_01.position.y + img_calendario_00.size.height / 2);
+    CGFloat outRadius = img_calendario_00.size.width / 2;
+    
+    // outRadius / 3 is arbitrary, just choose something >> 0 to avoid strange 
+    // effects when touching the control near of it's center
+    gestureRecognizer = [[OneFingerRotationGestureRecognizer alloc] initWithMidPoint: midPoint
+                                                                         innerRadius: outRadius / 3 
+                                                                         outerRadius: outRadius
+                                                                              target: self];
+//    [self.view addGestureRecognizer: gestureRecognizer];
+     [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:gestureRecognizer];
+}
+
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {
