@@ -9,15 +9,14 @@
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
-#import "OneFingerRotationGestureRecognizer.h"
+
 // CalendarioLayer
-@interface CalendarioLayer : CCLayer <OneFingerRotationGestureRecognizerDelegate>
+@interface CalendarioLayer : CCLayer 
 {
+    
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
-//
--(void)setupGestureRecognizer;
--(void)updateTextDisplay;
+
 @end

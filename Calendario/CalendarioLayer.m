@@ -9,29 +9,19 @@
 
 // Import the interfaces
 #import "CalendarioLayer.h"
+#import "CalAnnulusLayer.h"
 //
 
 // CalendarioLayer implementation
 @implementation CalendarioLayer
 
-//@interface CalendarioLayer ()
-//{
- CGFloat imageAngle;
- OneFingerRotationGestureRecognizer *gestureRecognizer;
-//Image views
- UIImageView *img_calendario_00;
- UIImage *img_calendario_01;
- UIImage *img_calendario_02;
- UIImage *img_calendario_03;
- CCSprite *calendario_00;
- CCSprite *calendario_01;
- CCSprite *calendario_02;
- CCSprite *calendario_03;    
-//}
-
-//- (void) updateTextDisplay;
-//- (void) setupGestureRecognizer;
-//@end
+//Annuluss
+CalAnnulusLayer *monthLayer;
+CalAnnulusLayer *dayLayer;
+CalAnnulusLayer *eightTrigramLayer;
+CalAnnulusLayer *compassLayer;
+//
+UIPinchGestureRecognizer *pinchGesture;
 
 +(CCScene *) scene
 {
@@ -43,6 +33,18 @@
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
+    
+    // 'layer' is an autorelease object.
+	monthLayer = [[CalAnnulusLayer node] initWithImagePath:@"calendario_00.png"];
+	dayLayer = [[CalAnnulusLayer node] initWithImagePath:@"calendario_01.png"];
+    eightTrigramLayer = [[CalAnnulusLayer node] initWithImagePath:@"calendario_02.png"];
+	compassLayer = [[CalAnnulusLayer node] initWithImagePath:@"calendario_03.png"];
+	// add layer as a child to scene
+	[scene addChild: monthLayer];
+    [scene addChild: dayLayer];
+    [scene addChild: eightTrigramLayer];
+    [scene addChild: compassLayer];
+//    [monthLayer setPosition:CGPointMake(100, 100)];
 	
 	// return the scene
 	return scene;
@@ -55,7 +57,7 @@
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
 		//
-        CGSize screenSize = [[CCDirector sharedDirector] winSize];
+//        CGSize screenSize = [[CCDirector sharedDirector] winSize];
 //		// create and initialize a Label
 //		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
 //
@@ -68,52 +70,15 @@
 //		// add the label as a child to this Layer
 //		[self addChild: label];
         
-        //
-//        UIImageView *foo = [[UIImageView alloc]initWithFrame:CGRectMake(100.0, 100.0, 600, 800.0)];
-//        foo.userInteractionEnabled = YES;
-//        foo.multipleTouchEnabled  = YES;
-//        foo.image = [UIImage imageNamed:@"earth.jpg"];
-//        foo.contentMode = UIViewContentModeScaleAspectFit;
-//        foo.clipsToBounds = YES;
-//        img_calendario_00 = [UIImage imageNamed:@"calendario_00.png"];
-        img_calendario_00 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"calendario_00.png"]];
-//        calendario_00 =  [[CCSprite alloc] initWithCGImage: [img_calendario_00 CGImage] key: @"calendario_00"];
-//        [self addChild:calendario_00];
-        [[[CCDirector sharedDirector] openGLView] addSubview:img_calendario_00];
-        [[[CCDirector sharedDirector] openGLView] sendSubviewToBack:img_calendario_00];
-        [img_calendario_00 setCenter:ccp(screenSize.width/2.0f,screenSize.height/2.0f)];
-        
-        //
-        img_calendario_01 = [UIImage imageNamed:@"calendario_01.png"];
-        calendario_01 =  [[CCSprite alloc] initWithCGImage: [img_calendario_01 CGImage] key: @"calendario_01"];
-        [self addChild:calendario_01];
-        calendario_01.position = ccp(screenSize.width/2.0f,screenSize.height/2.0f);
-        
-        //
-        img_calendario_02 = [UIImage imageNamed:@"calendario_02.png"];
-        calendario_02 =  [[CCSprite alloc] initWithCGImage: [img_calendario_02 CGImage] key: @"calendario_02"];
-        [self addChild:calendario_02];
-        calendario_02.position = ccp(screenSize.width/2.0f,screenSize.height/2.0f);
-        
-        //
-        img_calendario_03 = [UIImage imageNamed:@"calendario_03.png"];
-        calendario_03 =  [[CCSprite alloc] initWithCGImage: [img_calendario_03 CGImage] key: @"calendario_03"];
-        [self addChild:calendario_03];
-        calendario_03.position = ccp(screenSize.width/2.0f,screenSize.height/2.0f);
-        
         //Gestures
         //---rotate gesture--- 
 //        UIRotationGestureRecognizer *rotateGesture = [[[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotateGesture:)] autorelease];
 //        [rotateGesture setDelegate:self];
 //        [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:rotateGesture];
         //---pinch gesture---
-        UIPinchGestureRecognizer *pinchGesture = [[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)] autorelease];
+        pinchGesture = [[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)] autorelease];
         [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:pinchGesture];
         
-        // Custom initialization
-        imageAngle = 0;
-        [self setupGestureRecognizer];
-        [self updateTextDisplay];
 	}
 	return self;
 }
@@ -149,53 +114,27 @@
     }
 }
 
-#pragma mark - CircularGestureRecognizerDelegate protocol
 
-- (void) rotation: (CGFloat) angle
+#pragma mark - UIViewController methods 
+
+// Any rotation is supported.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // calculate rotation angle
-    imageAngle += angle;
-    if (imageAngle > 360)
-        imageAngle -= 360;
-    else if (imageAngle < -360)
-        imageAngle += 360;
-    
-    // rotate image and update text field
-    img_calendario_00.transform = CGAffineTransformMakeRotation(imageAngle *  M_PI / 180);
-//    [self updateTextDisplay];
+	return YES;
 }
 
-- (void) finalAngle: (CGFloat) angle
+// To make things easier, the gesture recognizer is removed before rotation...
+- (void) willRotateToInterfaceOrientation: (UIInterfaceOrientation) toInterfaceOrientation
+                                 duration: (NSTimeInterval) duration
 {
-    // circular gesture ended, update text field
-//    [self updateTextDisplay];
+    [[[CCDirector sharedDirector] openGLView] removeGestureRecognizer: pinchGesture];
+}
+// ... and added afterwards.
+- (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+
 }
 
-#pragma mark - Helper methods
-
-// Updates the text field with the current rotation angle.
-- (void) updateTextDisplay
-{
-//    textDisplay.text = [NSString stringWithFormat: @"\u03b1 = %.2f", imageAngle];
-}
-// Addes gesture recognizer to the view (or any other parent view of image. Calculates midPoint
-// and radius, based on the image position and dimension.
-- (void) setupGestureRecognizer
-{
-    // calculate center and radius of the control
-    CGPoint midPoint = CGPointMake(img_calendario_00.frame.origin.x + img_calendario_00.frame.size.width / 2,
-                                   img_calendario_00.frame.origin.y + img_calendario_00.frame.size.height / 2);
-    CGFloat outRadius = img_calendario_00.frame.size.width / 2;
-    
-    // outRadius / 3 is arbitrary, just choose something >> 0 to avoid strange 
-    // effects when touching the control near of it's center
-    gestureRecognizer = [[OneFingerRotationGestureRecognizer alloc] initWithMidPoint: midPoint
-                                                                         innerRadius: outRadius / 3 
-                                                                         outerRadius: outRadius
-                                                                              target: self];
-//    [self.view addGestureRecognizer: gestureRecognizer];
-     [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:gestureRecognizer];
-}
 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
@@ -206,5 +145,7 @@
 	
 	// don't forget to call "super dealloc"
 	[super dealloc];
+    //
+    pinchGesture = nil;
 }
 @end

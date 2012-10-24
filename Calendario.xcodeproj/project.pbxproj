@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4EDE862163835E500DD88C8 /* CalAnnulusLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EDE861163835E500DD88C8 /* CalAnnulusLayer.m */; };
 		A4EFAEBA1636EF84006A7C28 /* calendario_00.png in Resources */ = {isa = PBXBuildFile; fileRef = A4EFAEB91636EF84006A7C28 /* calendario_00.png */; };
 		A4EFAEBD1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EFAEBC1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m */; };
 		A4F2D65D16357A7A003DEA19 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F2D65C16357A7A003DEA19 /* QuartzCore.framework */; };
@@ -130,6 +131,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4EDE860163835E500DD88C8 /* CalAnnulusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; path = CalAnnulusLayer.h; sourceTree = "<group>"; };
+		A4EDE861163835E500DD88C8 /* CalAnnulusLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalAnnulusLayer.m; sourceTree = "<group>"; };
 		A4EFAEB91636EF84006A7C28 /* calendario_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendario_00.png; sourceTree = "<group>"; };
 		A4EFAEBB1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneFingerRotationGestureRecognizer.h; sourceTree = "<group>"; };
 		A4EFAEBC1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneFingerRotationGestureRecognizer.m; sourceTree = "<group>"; };
@@ -395,6 +398,8 @@
 		A4EDE85B1638214B00DD88C8 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				A4EDE860163835E500DD88C8 /* CalAnnulusLayer.h */,
+				A4EDE861163835E500DD88C8 /* CalAnnulusLayer.m */,
 			);
 			name = components;
 			sourceTree = "<group>";
@@ -956,6 +961,7 @@
 				A4F2D7C316357A7C003DEA19 /* RootViewController.m in Sources */,
 				A4F2D7C616357A7C003DEA19 /* CalendarioLayer.m in Sources */,
 				A4EFAEBD1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m in Sources */,
+				A4EDE862163835E500DD88C8 /* CalAnnulusLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
