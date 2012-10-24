@@ -18,9 +18,8 @@
 //{
  CGFloat imageAngle;
  OneFingerRotationGestureRecognizer *gestureRecognizer;
-//
- UIImageView *image;
- UIImage *img_calendario_00;
+//Image views
+ UIImageView *img_calendario_00;
  UIImage *img_calendario_01;
  UIImage *img_calendario_02;
  UIImage *img_calendario_03;
@@ -76,10 +75,13 @@
 //        foo.image = [UIImage imageNamed:@"earth.jpg"];
 //        foo.contentMode = UIViewContentModeScaleAspectFit;
 //        foo.clipsToBounds = YES;
-        img_calendario_00 = [UIImage imageNamed:@"calendario_00.png"];
-        calendario_00 =  [[CCSprite alloc] initWithCGImage: [img_calendario_00 CGImage] key: @"calendario_00"];
-        [self addChild:calendario_00];
-        calendario_00.position = ccp(screenSize.width/2.0f,screenSize.height/2.0f);
+//        img_calendario_00 = [UIImage imageNamed:@"calendario_00.png"];
+        img_calendario_00 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"calendario_00.png"]];
+//        calendario_00 =  [[CCSprite alloc] initWithCGImage: [img_calendario_00 CGImage] key: @"calendario_00"];
+//        [self addChild:calendario_00];
+        [[[CCDirector sharedDirector] openGLView] addSubview:img_calendario_00];
+        [[[CCDirector sharedDirector] openGLView] sendSubviewToBack:img_calendario_00];
+        [img_calendario_00 setCenter:ccp(screenSize.width/2.0f,screenSize.height/2.0f)];
         
         //
         img_calendario_01 = [UIImage imageNamed:@"calendario_01.png"];
@@ -101,12 +103,17 @@
         
         //Gestures
         //---rotate gesture--- 
-        UIRotationGestureRecognizer *rotateGesture = [[[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotateGesture:)] autorelease];
-        [rotateGesture setDelegate:self];
-        [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:rotateGesture];
+//        UIRotationGestureRecognizer *rotateGesture = [[[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotateGesture:)] autorelease];
+//        [rotateGesture setDelegate:self];
+//        [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:rotateGesture];
         //---pinch gesture---
         UIPinchGestureRecognizer *pinchGesture = [[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)] autorelease];
         [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:pinchGesture];
+        
+        // Custom initialization
+        imageAngle = 0;
+        [self setupGestureRecognizer];
+        [self updateTextDisplay];
 	}
 	return self;
 }
@@ -142,14 +149,43 @@
     }
 }
 
+#pragma mark - CircularGestureRecognizerDelegate protocol
+
+- (void) rotation: (CGFloat) angle
+{
+    // calculate rotation angle
+    imageAngle += angle;
+    if (imageAngle > 360)
+        imageAngle -= 360;
+    else if (imageAngle < -360)
+        imageAngle += 360;
+    
+    // rotate image and update text field
+    img_calendario_00.transform = CGAffineTransformMakeRotation(imageAngle *  M_PI / 180);
+//    [self updateTextDisplay];
+}
+
+- (void) finalAngle: (CGFloat) angle
+{
+    // circular gesture ended, update text field
+//    [self updateTextDisplay];
+}
+
+#pragma mark - Helper methods
+
+// Updates the text field with the current rotation angle.
+- (void) updateTextDisplay
+{
+//    textDisplay.text = [NSString stringWithFormat: @"\u03b1 = %.2f", imageAngle];
+}
 // Addes gesture recognizer to the view (or any other parent view of image. Calculates midPoint
 // and radius, based on the image position and dimension.
 - (void) setupGestureRecognizer
 {
     // calculate center and radius of the control
-    CGPoint midPoint = CGPointMake(calendario_01.position.x + img_calendario_00.size.width / 2,
-                                   calendario_01.position.y + img_calendario_00.size.height / 2);
-    CGFloat outRadius = img_calendario_00.size.width / 2;
+    CGPoint midPoint = CGPointMake(img_calendario_00.frame.origin.x + img_calendario_00.frame.size.width / 2,
+                                   img_calendario_00.frame.origin.y + img_calendario_00.frame.size.height / 2);
+    CGFloat outRadius = img_calendario_00.frame.size.width / 2;
     
     // outRadius / 3 is arbitrary, just choose something >> 0 to avoid strange 
     // effects when touching the control near of it's center

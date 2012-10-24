@@ -392,6 +392,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4EDE85B1638214B00DD88C8 /* components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = components;
+			sourceTree = "<group>";
+		};
 		A4F2D64D16357A7A003DEA19 = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +434,7 @@
 		A4F2D66C16357A7A003DEA19 /* Calendario */ = {
 			isa = PBXGroup;
 			children = (
+				A4EDE85B1638214B00DD88C8 /* components */,
 				A4EFAEBB1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.h */,
 				A4EFAEBC1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m */,
 				A4F2D7BE16357A7C003DEA19 /* AppDelegate.h */,
