@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4882BF716397FC20039CDC4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4882BF616397FC20039CDC4 /* CoreLocation.framework */; };
+		A4882C03163980710039CDC4 /* BSAddressComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = A4882BFA163980710039CDC4 /* BSAddressComponent.m */; };
+		A4882C04163980710039CDC4 /* BSForwardGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A4882BFC163980710039CDC4 /* BSForwardGeocoder.m */; };
+		A4882C05163980710039CDC4 /* BSGoogleV2KmlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A4882BFE163980710039CDC4 /* BSGoogleV2KmlParser.m */; };
+		A4882C06163980710039CDC4 /* BSGoogleV3KmlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A4882C00163980710039CDC4 /* BSGoogleV3KmlParser.m */; };
+		A4882C07163980710039CDC4 /* BSKmlResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A4882C02163980710039CDC4 /* BSKmlResult.m */; };
+		A4882C0C163980A00039CDC4 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = A4882C0B163980A00039CDC4 /* NSString+URLEncode.m */; };
+		A4882C0F163980E80039CDC4 /* CalCompassLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4882C0E163980E80039CDC4 /* CalCompassLayer.m */; };
 		A4EDE862163835E500DD88C8 /* CalAnnulusLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EDE861163835E500DD88C8 /* CalAnnulusLayer.m */; };
 		A4EFAEBA1636EF84006A7C28 /* calendario_00.png in Resources */ = {isa = PBXBuildFile; fileRef = A4EFAEB91636EF84006A7C28 /* calendario_00.png */; };
 		A4EFAEBD1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EFAEBC1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m */; };
@@ -131,7 +139,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A4EDE860163835E500DD88C8 /* CalAnnulusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; path = CalAnnulusLayer.h; sourceTree = "<group>"; };
+		A4882BF616397FC20039CDC4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A4882BF9163980710039CDC4 /* BSAddressComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSAddressComponent.h; sourceTree = "<group>"; };
+		A4882BFA163980710039CDC4 /* BSAddressComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSAddressComponent.m; sourceTree = "<group>"; };
+		A4882BFB163980710039CDC4 /* BSForwardGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSForwardGeocoder.h; sourceTree = "<group>"; };
+		A4882BFC163980710039CDC4 /* BSForwardGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSForwardGeocoder.m; sourceTree = "<group>"; };
+		A4882BFD163980710039CDC4 /* BSGoogleV2KmlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSGoogleV2KmlParser.h; sourceTree = "<group>"; };
+		A4882BFE163980710039CDC4 /* BSGoogleV2KmlParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSGoogleV2KmlParser.m; sourceTree = "<group>"; };
+		A4882BFF163980710039CDC4 /* BSGoogleV3KmlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSGoogleV3KmlParser.h; sourceTree = "<group>"; };
+		A4882C00163980710039CDC4 /* BSGoogleV3KmlParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSGoogleV3KmlParser.m; sourceTree = "<group>"; };
+		A4882C01163980710039CDC4 /* BSKmlResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKmlResult.h; sourceTree = "<group>"; };
+		A4882C02163980710039CDC4 /* BSKmlResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKmlResult.m; sourceTree = "<group>"; };
+		A4882C0A163980A00039CDC4 /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
+		A4882C0B163980A00039CDC4 /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
+		A4882C0D163980E80039CDC4 /* CalCompassLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalCompassLayer.h; sourceTree = "<group>"; };
+		A4882C0E163980E80039CDC4 /* CalCompassLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalCompassLayer.m; sourceTree = "<group>"; };
+		A4EDE860163835E500DD88C8 /* CalAnnulusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalAnnulusLayer.h; sourceTree = "<group>"; };
 		A4EDE861163835E500DD88C8 /* CalAnnulusLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalAnnulusLayer.m; sourceTree = "<group>"; };
 		A4EFAEB91636EF84006A7C28 /* calendario_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendario_00.png; sourceTree = "<group>"; };
 		A4EFAEBB1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneFingerRotationGestureRecognizer.h; sourceTree = "<group>"; };
@@ -381,6 +404,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4882BF716397FC20039CDC4 /* CoreLocation.framework in Frameworks */,
 				A4F2D65D16357A7A003DEA19 /* QuartzCore.framework in Frameworks */,
 				A4F2D65F16357A7A003DEA19 /* OpenGLES.framework in Frameworks */,
 				A4F2D66116357A7A003DEA19 /* OpenAL.framework in Frameworks */,
@@ -395,11 +419,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4882C08163980780039CDC4 /* ForwardGeoCoder */ = {
+			isa = PBXGroup;
+			children = (
+				A4882C0A163980A00039CDC4 /* NSString+URLEncode.h */,
+				A4882C0B163980A00039CDC4 /* NSString+URLEncode.m */,
+				A4882C091639808B0039CDC4 /* Parsers */,
+				A4882BF9163980710039CDC4 /* BSAddressComponent.h */,
+				A4882BFA163980710039CDC4 /* BSAddressComponent.m */,
+				A4882BFB163980710039CDC4 /* BSForwardGeocoder.h */,
+				A4882BFC163980710039CDC4 /* BSForwardGeocoder.m */,
+				A4882C01163980710039CDC4 /* BSKmlResult.h */,
+				A4882C02163980710039CDC4 /* BSKmlResult.m */,
+			);
+			name = ForwardGeoCoder;
+			sourceTree = "<group>";
+		};
+		A4882C091639808B0039CDC4 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				A4882BFD163980710039CDC4 /* BSGoogleV2KmlParser.h */,
+				A4882BFE163980710039CDC4 /* BSGoogleV2KmlParser.m */,
+				A4882BFF163980710039CDC4 /* BSGoogleV3KmlParser.h */,
+				A4882C00163980710039CDC4 /* BSGoogleV3KmlParser.m */,
+			);
+			name = Parsers;
+			sourceTree = "<group>";
+		};
 		A4EDE85B1638214B00DD88C8 /* components */ = {
 			isa = PBXGroup;
 			children = (
 				A4EDE860163835E500DD88C8 /* CalAnnulusLayer.h */,
 				A4EDE861163835E500DD88C8 /* CalAnnulusLayer.m */,
+				A4882C0D163980E80039CDC4 /* CalCompassLayer.h */,
+				A4882C0E163980E80039CDC4 /* CalCompassLayer.m */,
 			);
 			name = components;
 			sourceTree = "<group>";
@@ -424,6 +477,7 @@
 		A4F2D65B16357A7A003DEA19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A4882BF616397FC20039CDC4 /* CoreLocation.framework */,
 				A4F2D65C16357A7A003DEA19 /* QuartzCore.framework */,
 				A4F2D65E16357A7A003DEA19 /* OpenGLES.framework */,
 				A4F2D66016357A7A003DEA19 /* OpenAL.framework */,
@@ -439,6 +493,7 @@
 		A4F2D66C16357A7A003DEA19 /* Calendario */ = {
 			isa = PBXGroup;
 			children = (
+				A4882C08163980780039CDC4 /* ForwardGeoCoder */,
 				A4EDE85B1638214B00DD88C8 /* components */,
 				A4EFAEBB1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.h */,
 				A4EFAEBC1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m */,
@@ -962,6 +1017,13 @@
 				A4F2D7C616357A7C003DEA19 /* CalendarioLayer.m in Sources */,
 				A4EFAEBD1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m in Sources */,
 				A4EDE862163835E500DD88C8 /* CalAnnulusLayer.m in Sources */,
+				A4882C03163980710039CDC4 /* BSAddressComponent.m in Sources */,
+				A4882C04163980710039CDC4 /* BSForwardGeocoder.m in Sources */,
+				A4882C05163980710039CDC4 /* BSGoogleV2KmlParser.m in Sources */,
+				A4882C06163980710039CDC4 /* BSGoogleV3KmlParser.m in Sources */,
+				A4882C07163980710039CDC4 /* BSKmlResult.m in Sources */,
+				A4882C0C163980A00039CDC4 /* NSString+URLEncode.m in Sources */,
+				A4882C0F163980E80039CDC4 /* CalCompassLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

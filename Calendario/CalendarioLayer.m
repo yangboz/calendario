@@ -10,6 +10,7 @@
 // Import the interfaces
 #import "CalendarioLayer.h"
 #import "CalAnnulusLayer.h"
+#import "CalCompassLayer.h"
 //
 
 // CalendarioLayer implementation
@@ -19,7 +20,8 @@
 CalAnnulusLayer *monthLayer;
 CalAnnulusLayer *dayLayer;
 CalAnnulusLayer *eightTrigramLayer;
-CalAnnulusLayer *compassLayer;
+//CalAnnulusLayer *compassLayer;
+CalCompassLayer *compassLayer;
 //
 UIPinchGestureRecognizer *pinchGesture;
 
@@ -38,7 +40,7 @@ UIPinchGestureRecognizer *pinchGesture;
 	monthLayer = [[CalAnnulusLayer node] initWithImagePath:@"calendario_00.png"];
 	dayLayer = [[CalAnnulusLayer node] initWithImagePath:@"calendario_01.png"];
     eightTrigramLayer = [[CalAnnulusLayer node] initWithImagePath:@"calendario_02.png"];
-	compassLayer = [[CalAnnulusLayer node] initWithImagePath:@"calendario_03.png"];
+	compassLayer = [[CalCompassLayer node] initWithImagePath:@"calendario_03.png"];
 	// add layer as a child to scene
 	[scene addChild: monthLayer];
     [scene addChild: dayLayer];
