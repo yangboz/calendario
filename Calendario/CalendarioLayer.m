@@ -12,9 +12,10 @@
 #import "CalAnnulusLayer.h"
 #import "CalCompassLayer.h"
 //
-
+#import "UIResponder+MotionRecognizers.h"
+#import <QuartzCore/QuartzCore.h>
 // CalendarioLayer implementation
-@implementation CalendarioLayer
+@implementation CalendarioLayer 
 
 //Annuluss
 CalAnnulusLayer *monthLayer;
@@ -80,6 +81,8 @@ UIPinchGestureRecognizer *pinchGesture;
         //---pinch gesture---
         pinchGesture = [[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)] autorelease];
         [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:pinchGesture];
+        // Step 2 - Register for motion event:
+        [self addMotionRecognizerWithAction:@selector(motionWasRecognized:)];
         
 	}
 	return self;
@@ -137,6 +140,24 @@ UIPinchGestureRecognizer *pinchGesture;
 
 }
 
+#pragma  mark -ShakeMotion
+
+- (void) motionWasRecognized:(NSNotification*)notif {
+	CABasicAnimation* shake = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+	shake.fromValue = [NSNumber numberWithFloat:-M_PI/32];
+	shake.toValue   = [NSNumber numberWithFloat:+M_PI/32];
+	shake.duration = 0.1;
+	shake.autoreverses = YES;
+	shake.repeatCount = 4;
+//	[self.shakeFeedbackOverlay.layer addAnimation:shake forKey:@"shakeAnimation"];
+	
+//	self.shakeFeedbackOverlay.alpha = 1.0;
+	[UIView animateWithDuration:2.0 delay:0.0
+						options:UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAllowUserInteraction
+					 animations:^{
+//                         self.shakeFeedbackOverlay.alpha = 1.0;
+                     } completion:nil];
+}
 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
@@ -149,5 +170,7 @@ UIPinchGestureRecognizer *pinchGesture;
 	[super dealloc];
     //
     pinchGesture = nil;
+    // ShakeMotion - Unregister:
+	[self removeMotionRecognizer];
 }
 @end
