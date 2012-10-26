@@ -10,6 +10,7 @@
 
 
 @implementation CalAnnulusLayer
+@synthesize img_calendario;
 
 -(id) initWithImagePath:(NSString *)path
 {

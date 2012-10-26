@@ -22,5 +22,7 @@
 //
 -(void)setupGestureRecognizer;
 -(void)updateTextDisplay;
+//
+@property(nonatomic,retain) UIImageView *img_calendario;
 
 @end

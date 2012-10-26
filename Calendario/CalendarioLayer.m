@@ -18,13 +18,27 @@
 @implementation CalendarioLayer 
 
 //Annuluss
-CalAnnulusLayer *monthLayer;
-CalAnnulusLayer *dayLayer;
+CalAnnulusLayer *monthLayer;//veintena
+CalAnnulusLayer *dayLayer;//trecena
 CalAnnulusLayer *eightTrigramLayer;
 //CalAnnulusLayer *compassLayer;
 CalCompassLayer *compassLayer;
 //
 UIPinchGestureRecognizer *pinchGesture;
+//1） 已知日期在一年中的序号（tday），求卓尔金日期（td--trd）：
+//　　公式：tday = 13tm + td = 20trm + trd（td等于0时加13，trd等于0时加20）
+//　　如：第168天被13除后余12，被20除后余8，第8个符号为Lamat。得卓尔金日期为12Lamat。
+//（2） 已知卓尔金日期（td--trd），求其在一年中的序号（tday）：
+//　　公式：13tm - 20trm = trd - td, tday = 13tm + td
+//　　方程中的变量均为整数，且 0<tday<261，因此可求出唯一的解。
+//More:http://baike.baidu.com/view/1490900.htm
+
+NSInteger daysInYear;
+NSInteger daysInYearMaya;
+NSInteger dayInYearMaya;
+NSInteger monthInYearMaya;
+CGFloat dayAngle;
+CGFloat monthAngle;
 
 +(CCScene *) scene
 {
@@ -48,7 +62,33 @@ UIPinchGestureRecognizer *pinchGesture;
     [scene addChild: eightTrigramLayer];
     [scene addChild: compassLayer];
 //    [monthLayer setPosition:CGPointMake(100, 100)];
-	
+//	NSDate *date = [NSDate date];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"HH:mm"];
+//    NSCalendar *calendar = [NSCalendar currentCalendar];
+//    NSDateComponents *components = [calendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth | kCFCalendarUnitDay | kCFCalendarUnitHour | kCFCalendarUnitMinute) fromDate:date];
+//    NSInteger year = [components year];
+//    NSInteger month = [components month];
+//    NSInteger day = [components day];
+//    NSInteger hour = [components hour];
+//    NSInteger minute = [components minute];
+//    NSLog(@"%d/%d/%d/ %d:%d", year,month,day,hour, minute);
+    //
+    NSDate *today = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"DDD"];
+    daysInYear = [[dateFormat stringFromDate:today] integerValue];
+    daysInYearMaya = daysInYear % 260;
+    dayInYearMaya = daysInYearMaya % 13;
+    monthInYearMaya = daysInYearMaya / 20;
+    NSLog(@"today is %d. day in year.Maya days is %d,Maya month is %d,Maya day is %d.", daysInYear, daysInYearMaya,monthInYearMaya, dayInYearMaya);
+    //image rotation angle calculate
+    dayAngle = 1 * (dayInYearMaya/13.0);
+    monthAngle = 1 * (monthInYearMaya/20.0);
+    
+    //Initialize the calendario component's rotation property.
+    dayLayer.img_calendario.transform = CGAffineTransformMakeRotation(dayAngle);
+    monthLayer.img_calendario.transform = CGAffineTransformMakeRotation(monthAngle);
 	// return the scene
 	return scene;
 }
@@ -82,8 +122,8 @@ UIPinchGestureRecognizer *pinchGesture;
         pinchGesture = [[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)] autorelease];
         [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:pinchGesture];
         // Step 2 - Register for motion event:
-        [self addMotionRecognizerWithAction:@selector(motionWasRecognized:)];
-        
+//        [self addMotionRecognizerWithAction:@selector(motionWasRecognized:)];
+       
 	}
 	return self;
 }
@@ -171,6 +211,6 @@ UIPinchGestureRecognizer *pinchGesture;
     //
     pinchGesture = nil;
     // ShakeMotion - Unregister:
-	[self removeMotionRecognizer];
+//	[self removeMotionRecognizer];
 }
 @end
