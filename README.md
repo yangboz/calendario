@@ -3,6 +3,15 @@ calendario
 
 Maya Calendario(http://en.wikipedia.org/wiki/Maya_calendar)
 
+TODO
+==========
+
+#1.Piece of Calendario explanation;
+
+#2.Using CocosBuilder to simplify the Cocos2d-dev work flow;
+
+#3.Gua64 implementation;
+
 Gua64
 ==========
 
