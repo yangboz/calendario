@@ -914,6 +914,11 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = GODPAPER;
+				TargetAttributes = {
+					A4F2D65716357A7A003DEA19 = {
+						DevelopmentTeam = 63X9SGW3ZX;
+					};
+				};
 			};
 			buildConfigurationList = A4F2D65216357A7A003DEA19 /* Build configuration list for PBXProject "Calendario" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1118,16 +1123,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Calendario/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = Calendario/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1137,15 +1146,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Calendario/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = Calendario/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
