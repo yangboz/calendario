@@ -178,7 +178,7 @@
 		A4EFAEB91636EF84006A7C28 /* calendario_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendario_00.png; sourceTree = "<group>"; };
 		A4EFAEBB1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneFingerRotationGestureRecognizer.h; sourceTree = "<group>"; };
 		A4EFAEBC1636F2E6006A7C28 /* OneFingerRotationGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneFingerRotationGestureRecognizer.m; sourceTree = "<group>"; };
-		A4F2D65816357A7A003DEA19 /* Calendario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendario.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4F2D65816357A7A003DEA19 /* MayaCalendario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MayaCalendario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F2D65C16357A7A003DEA19 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A4F2D65E16357A7A003DEA19 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A4F2D66016357A7A003DEA19 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -510,7 +510,7 @@
 		A4F2D65916357A7A003DEA19 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A4F2D65816357A7A003DEA19 /* Calendario.app */,
+				A4F2D65816357A7A003DEA19 /* MayaCalendario.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -889,9 +889,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A4F2D65716357A7A003DEA19 /* Calendario */ = {
+		A4F2D65716357A7A003DEA19 /* MayaCalendario */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A4F2D7CA16357A7C003DEA19 /* Build configuration list for PBXNativeTarget "Calendario" */;
+			buildConfigurationList = A4F2D7CA16357A7C003DEA19 /* Build configuration list for PBXNativeTarget "MayaCalendario" */;
 			buildPhases = (
 				A4F2D65416357A7A003DEA19 /* Sources */,
 				A4F2D65516357A7A003DEA19 /* Frameworks */,
@@ -901,9 +901,9 @@
 			);
 			dependencies = (
 			);
-			name = Calendario;
+			name = MayaCalendario;
 			productName = Calendario;
-			productReference = A4F2D65816357A7A003DEA19 /* Calendario.app */;
+			productReference = A4F2D65816357A7A003DEA19 /* MayaCalendario.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -920,7 +920,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A4F2D65216357A7A003DEA19 /* Build configuration list for PBXProject "Calendario" */;
+			buildConfigurationList = A4F2D65216357A7A003DEA19 /* Build configuration list for PBXProject "MayaCalendario" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -932,7 +932,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A4F2D65716357A7A003DEA19 /* Calendario */,
+				A4F2D65716357A7A003DEA19 /* MayaCalendario */,
 			);
 		};
 /* End PBXProject section */
@@ -1135,7 +1135,7 @@
 				INFOPLIST_FILE = Calendario/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MayaCalendario;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -1157,7 +1157,7 @@
 				INFOPLIST_FILE = Calendario/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MayaCalendario;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1168,7 +1168,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A4F2D65216357A7A003DEA19 /* Build configuration list for PBXProject "Calendario" */ = {
+		A4F2D65216357A7A003DEA19 /* Build configuration list for PBXProject "MayaCalendario" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A4F2D7C816357A7C003DEA19 /* Debug */,
@@ -1177,7 +1177,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A4F2D7CA16357A7C003DEA19 /* Build configuration list for PBXNativeTarget "Calendario" */ = {
+		A4F2D7CA16357A7C003DEA19 /* Build configuration list for PBXNativeTarget "MayaCalendario" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A4F2D7CB16357A7C003DEA19 /* Debug */,

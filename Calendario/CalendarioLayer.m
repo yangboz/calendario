@@ -81,7 +81,7 @@ CGFloat monthAngle;
     daysInYearMaya = daysInYear % 260;
     dayInYearMaya = daysInYearMaya % 13;
     monthInYearMaya = daysInYearMaya / 20;
-    NSLog(@"today is %d. day in year.Maya days is %d,Maya month is %d,Maya day is %d.", daysInYear, daysInYearMaya,monthInYearMaya, dayInYearMaya);
+    NSLog(@"today is %ld. day in year.Maya days is %ld,Maya month is %ld,Maya day is %ld.", (long)daysInYear, (long)daysInYearMaya,(long)monthInYearMaya, (long)dayInYearMaya);
     //image rotation angle calculate
     dayAngle = 1 * (dayInYearMaya/13.0);
     monthAngle = 1 * (monthInYearMaya/20.0);
@@ -122,8 +122,8 @@ CGFloat monthAngle;
         pinchGesture = [[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)] autorelease];
         [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:pinchGesture];
         // Step 2 - Register for motion event:
-//        [self addMotionRecognizerWithAction:@selector(motionWasRecognized:)];
-       
+        //[self addMotionRecognizerWithAction:@selector(motionWasRecognized:)];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleShakeMotion:) name:@"handleShakeMotion" object:nil];
 	}
 	return self;
 }
@@ -182,7 +182,9 @@ CGFloat monthAngle;
 
 #pragma  mark -ShakeMotion
 
-- (void) motionWasRecognized:(NSNotification*)notif {
+//- (void) motionWasRecognized:(NSNotification*)notif
+- (void)handleShakeMotion:(NSNotification *)notification
+{
 	CABasicAnimation* shake = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
 	shake.fromValue = [NSNumber numberWithFloat:-M_PI/32];
 	shake.toValue   = [NSNumber numberWithFloat:+M_PI/32];

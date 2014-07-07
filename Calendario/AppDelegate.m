@@ -13,6 +13,8 @@
 #import "CalendarioLayer.h"
 #import "RootViewController.h"
 
+#import "CPMotionRecognizingWindow.h"
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -41,7 +43,8 @@
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
 	// Init the window
-	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	//window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    window = [[CPMotionRecognizingWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
 	// Try to use CADisplayLink director
 	// if it fails (SDK < 3.1) use the default director

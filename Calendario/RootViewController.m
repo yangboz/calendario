@@ -16,6 +16,8 @@
 #import "RootViewController.h"
 #import "GameConfig.h"
 
+#import "UIResponder+MotionRecognizers.h"
+
 @implementation RootViewController
 
 /*
@@ -141,11 +143,25 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    [self removeMotionRecognizer];
 }
 
 
 - (void)dealloc {
     [super dealloc];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+	NSLog(@"child view controller will appear");
+	[super viewWillAppear:animated];
+	
+	// Step 2 - Register for motion event:
+	[self addMotionRecognizerWithAction:@selector(motionWasRecognized:)];
+}
+
+- (void) motionWasRecognized:(NSNotification*)notif {
+    NSLog(@"motionWasRecognized!");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"handleShakeMotion" object:nil];
 }
 
 
