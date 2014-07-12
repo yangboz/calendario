@@ -26,6 +26,10 @@ CalCompassLayer *compassLayer;
 //
 CCLabelTTF *dateLabel;
 //
+AVAudioRecorder *recorder;
+NSTimer *levelTimer;
+double lowPassResults;
+//
 UIPinchGestureRecognizer *pinchGesture;
 //1） 已知日期在一年中的序号（tday），求卓尔金日期（td--trd）：
 //　　公式：tday = 13tm + td = 20trm + trd（td等于0时加13，trd等于0时加20）
@@ -93,6 +97,8 @@ CGFloat hoursAngle;//3hours
         // Step 2 - Register for motion event:
         //[self addMotionRecognizerWithAction:@selector(motionWasRecognized:)];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleShakeMotion:) name:@"handleShakeMotion" object:nil];
+        ///MicBlow setup
+        [self setupMicBlowDetection];
 	}
 	return self;
 }
@@ -108,6 +114,17 @@ CGFloat hoursAngle;//3hours
     //
     pinchGesture = nil;
     //
+    //Annuluss
+    [monthLayer release];//veintena
+    [dayLayer release];//trecena
+    [eightTrigramLayer release];
+    //CalAnnulusLayer *compassLayer;
+    [compassLayer release];
+    //
+    [dateLabel release];
+    //
+    [levelTimer release];
+	[recorder release];
 }
 
 #pragma mark -Gestures(rotate,pinch..)
@@ -246,5 +263,50 @@ CGFloat hoursAngle;//3hours
     }
     //
     [dateLabel setString:timeStamp];
+}
+#pragma mark -MicBlow detection
+-(void)setupMicBlowDetection
+{
+    NSURL *url = [NSURL fileURLWithPath:@"/dev/null"];
+    
+	NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
+							  [NSNumber numberWithFloat: 44100.0],                 AVSampleRateKey,
+							  [NSNumber numberWithInt: kAudioFormatAppleLossless], AVFormatIDKey,
+							  [NSNumber numberWithInt: 1],                         AVNumberOfChannelsKey,
+							  [NSNumber numberWithInt: AVAudioQualityMax],         AVEncoderAudioQualityKey,
+							  nil];
+    
+	NSError *error;
+    
+	recorder = [[AVAudioRecorder alloc] initWithURL:url settings:settings error:&error];
+    
+	if (recorder) {
+		[recorder prepareToRecord];
+		recorder.meteringEnabled = YES;
+		[recorder record];
+		levelTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector: @selector(levelTimerCallback:) userInfo: nil repeats: YES];
+	} else{
+        NSLog(@"MicBlow error: %@",[error description]);
+    }
+}
+- (void)levelTimerCallback:(NSTimer *)timer
+{
+    [recorder updateMeters];
+    
+	const double ALPHA = 0.05;
+	double peakPowerForChannel = pow(10, (0.05 * [recorder peakPowerForChannel:0]));
+	lowPassResults = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * lowPassResults;
+    NSString *resultStr = @"Average input:";
+    resultStr = [resultStr stringByAppendingFormat:@" averagePowerForChannel:%f peakPowerForChannel:%f Low pass results:%f",[recorder averagePowerForChannel:0],[recorder peakPowerForChannel:0],lowPassResults];
+    //	NSLog(@"Average input: %f Peak input: %f Low pass results: %f", [recorder averagePowerForChannel:0], [recorder peakPowerForChannel:0], lowPassResults);
+    NSLog(@"Mic Blow befor filter:%@",resultStr);
+    //@see: http://mobileorchard.com/tutorial-detecting-when-a-user-blows-into-the-mic/
+	if (lowPassResults >= 0.25)
+    {
+		NSLog(@"Mic blow detected");
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Mic blow detected!" message:resultStr delegate:self cancelButtonTitle:NULL otherButtonTitles:NULL, nil];
+        [alertView show];
+        
+    }
 }
 @end

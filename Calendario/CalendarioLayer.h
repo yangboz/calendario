@@ -10,6 +10,9 @@
 // When you import this file, you import all the cocos2d classes
 #import <UIKit/UIKit.h>
 #import "cocos2d.h"
+///MicBlow
+#import <AVFoundation/AVFoundation.h>
+#import <CoreAudio/CoreAudioTypes.h>
 
 // CalendarioLayer
 @interface CalendarioLayer : CCLayer 
@@ -24,4 +27,7 @@
 + (void)rotateCalendarioWithDate:(NSDate *)dateValue;
 - (void)addDateLabel;
 - (void)updateDateLable:(NSString *)dateValue;
+//
+-(void)setupMicBlowDetection;
+- (void)levelTimerCallback:(NSTimer *)timer;
 @end
