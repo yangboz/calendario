@@ -24,6 +24,8 @@ CalAnnulusLayer *eightTrigramLayer;
 //CalAnnulusLayer *compassLayer;
 CalCompassLayer *compassLayer;
 //
+CCLabelTTF *dateLabel;
+//
 UIPinchGestureRecognizer *pinchGesture;
 //1） 已知日期在一年中的序号（tday），求卓尔金日期（td--trd）：
 //　　公式：tday = 13tm + td = 20trm + trd（td等于0时加13，trd等于0时加20）
@@ -77,19 +79,9 @@ CGFloat hoursAngle;//3hours
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
 		//
-//        CGSize screenSize = [[CCDirector sharedDirector] winSize];
-//		// create and initialize a Label
-//		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-//
-//		// ask director the the window size
-//		CGSize size = [[CCDirector sharedDirector] winSize];
-//	
-//		// position the label on the center of the screen
-//		label.position =  ccp( size.width /2 , size.height/2 );
-//		
-//		// add the label as a child to this Layer
-//		[self addChild: label];
-        
+        [self addDateLabel];
+        //
+        [self updateDateLable:NULL];
         //Gestures
         //---rotate gesture--- 
 //        UIRotationGestureRecognizer *rotateGesture = [[[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotateGesture:)] autorelease];
@@ -188,7 +180,7 @@ CGFloat hoursAngle;//3hours
     [CalendarioLayer rotateCalendarioWithDate:today];
 }
 #pragma mark -RotateMotion
-+ (void)rotateCalendarioWithDate:(NSDate *)dateVaule;
++ (void)rotateCalendarioWithDate:(NSDate *)dateValue;
 {
     //	NSDate *date = [NSDate date];
     //    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -204,14 +196,14 @@ CGFloat hoursAngle;//3hours
     //
 //    NSDate *today = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"DDDD"];
-    daysInYear = [[dateFormat stringFromDate:dateVaule] integerValue];
+    [dateFormat setDateFormat:@"DDD"];
+    daysInYear = [[dateFormat stringFromDate:dateValue] integerValue];
     daysInYearMaya = daysInYear % 260;
     dayInYearMaya = daysInYearMaya % 13;
     monthInYearMaya = daysInYearMaya / 20;
     //
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:dateVaule];
+    NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:dateValue];
     hoursInYearMaya = [components hour];
     NSLog(@"Today is: %ld . days in year.Maya days is: %ld,Maya month is: %ld,Maya day is: %ld,Maya hours is: %ld", (long)daysInYear, (long)daysInYearMaya,(long)monthInYearMaya, (long)dayInYearMaya,(long)hoursInYearMaya);
     //image rotation angle calculate
@@ -224,5 +216,35 @@ CGFloat hoursAngle;//3hours
     eightTrigramLayer.img_calendario.transform = CGAffineTransformMakeRotation(hoursAngle);
     //Release
     [dateFormat release];
+}
+#pragma mark -Other layer display
+- (void)addDateLabel
+{
+    //create and initialize a Label
+    dateLabel = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:18];
+    //
+    // ask director the the window size
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    //
+    //position the label on the center of the screen
+    dateLabel.position =  ccp( size.width /2 , size.height-30 );
+    //
+    //add the label as a child to this Layer
+    [self addChild: dateLabel];
+}
+- (void)updateDateLable:(NSString *)dateValue
+{
+    NSString *timeStamp = @"00/00/00_00:00";
+    if (dateValue != NULL) {
+        timeStamp = dateValue;
+    }else{
+        NSDate *today = [NSDate date];
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSDateComponents *components = [calendar components:(NSYearCalendarUnit|NSMonthCalendarUnit| NSDayCalendarUnit| NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:today];
+        //
+        timeStamp = [[NSString alloc] initWithFormat:@"%ld/%ld/%ld_%ld:%ld",(long)[components year],(long)[components month],(long)[components day],(long)[components hour],(long)[components minute]];
+    }
+    //
+    [dateLabel setString:timeStamp];
 }
 @end

@@ -21,5 +21,7 @@
 +(CCScene *) scene;
 //
 - (void)handleShakeMotion:(NSNotification *)notification;
-+ (void)rotateCalendarioWithDate:(NSDate *)dateVaule;
++ (void)rotateCalendarioWithDate:(NSDate *)dateValue;
+- (void)addDateLabel;
+- (void)updateDateLable:(NSString *)dateValue;
 @end
