@@ -144,6 +144,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65F8FAD51971507900EC0A7E /* Pref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pref.h; sourceTree = "<group>"; };
 		A4882BF616397FC20039CDC4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A4882BF9163980710039CDC4 /* BSAddressComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSAddressComponent.h; sourceTree = "<group>"; };
 		A4882BFA163980710039CDC4 /* BSAddressComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSAddressComponent.m; sourceTree = "<group>"; };
@@ -544,6 +545,7 @@
 				A4F2D7C416357A7C003DEA19 /* CalendarioLayer.h */,
 				A4F2D7C516357A7C003DEA19 /* CalendarioLayer.m */,
 				A4F2D7C716357A7C003DEA19 /* GameConfig.h */,
+				65F8FAD51971507900EC0A7E /* Pref.h */,
 				A4F2D66D16357A7A003DEA19 /* Resources */,
 				A4F2D68116357A7A003DEA19 /* libs */,
 				A4F2D7BA16357A7C003DEA19 /* Supporting Files */,

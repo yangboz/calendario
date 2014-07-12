@@ -37,8 +37,10 @@ NSInteger daysInYear;
 NSInteger daysInYearMaya;
 NSInteger dayInYearMaya;
 NSInteger monthInYearMaya;
+NSInteger hoursInYearMaya;
 CGFloat dayAngle;
 CGFloat monthAngle;
+CGFloat hoursAngle;//3hours
 
 +(CCScene *) scene
 {
@@ -202,18 +204,25 @@ CGFloat monthAngle;
     //
 //    NSDate *today = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"DDD"];
+    [dateFormat setDateFormat:@"DDDD"];
     daysInYear = [[dateFormat stringFromDate:dateVaule] integerValue];
     daysInYearMaya = daysInYear % 260;
     dayInYearMaya = daysInYearMaya % 13;
     monthInYearMaya = daysInYearMaya / 20;
-    NSLog(@"today is %ld. day in year.Maya days is %ld,Maya month is %ld,Maya day is %ld.", (long)daysInYear, (long)daysInYearMaya,(long)monthInYearMaya, (long)dayInYearMaya);
+    //
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:dateVaule];
+    hoursInYearMaya = [components hour];
+    NSLog(@"Today is: %ld . days in year.Maya days is: %ld,Maya month is: %ld,Maya day is: %ld,Maya hours is: %ld", (long)daysInYear, (long)daysInYearMaya,(long)monthInYearMaya, (long)dayInYearMaya,(long)hoursInYearMaya);
     //image rotation angle calculate
     dayAngle = 1 * (dayInYearMaya/13.0);
     monthAngle = 1 * (monthInYearMaya/20.0);
-    
+    hoursAngle = 1 * (hoursInYearMaya/8.0);
     //Initialize the calendario component's rotation property.
     dayLayer.img_calendario.transform = CGAffineTransformMakeRotation(dayAngle);
     monthLayer.img_calendario.transform = CGAffineTransformMakeRotation(monthAngle);
+    eightTrigramLayer.img_calendario.transform = CGAffineTransformMakeRotation(hoursAngle);
+    //Release
+    [dateFormat release];
 }
 @end
