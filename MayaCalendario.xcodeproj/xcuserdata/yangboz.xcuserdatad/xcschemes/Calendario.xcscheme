@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A4F2D65716357A7A003DEA19"
-               BuildableName = "Calendario.app"
+               BuildableName = "MayaCalendario.app"
                BlueprintName = "MayaCalendario"
                ReferencedContainer = "container:MayaCalendario.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A4F2D65716357A7A003DEA19"
-            BuildableName = "Calendario.app"
+            BuildableName = "MayaCalendario.app"
             BlueprintName = "MayaCalendario"
             ReferencedContainer = "container:MayaCalendario.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A4F2D65716357A7A003DEA19"
-            BuildableName = "Calendario.app"
+            BuildableName = "MayaCalendario.app"
             BlueprintName = "MayaCalendario"
             ReferencedContainer = "container:MayaCalendario.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A4F2D65716357A7A003DEA19"
-            BuildableName = "Calendario.app"
+            BuildableName = "MayaCalendario.app"
             BlueprintName = "MayaCalendario"
             ReferencedContainer = "container:MayaCalendario.xcodeproj">
          </BuildableReference>

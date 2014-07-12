@@ -62,37 +62,12 @@ CGFloat monthAngle;
     [scene addChild: eightTrigramLayer];
     [scene addChild: compassLayer];
 //    [monthLayer setPosition:CGPointMake(100, 100)];
-//	NSDate *date = [NSDate date];
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setDateFormat:@"HH:mm"];
-//    NSCalendar *calendar = [NSCalendar currentCalendar];
-//    NSDateComponents *components = [calendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth | kCFCalendarUnitDay | kCFCalendarUnitHour | kCFCalendarUnitMinute) fromDate:date];
-//    NSInteger year = [components year];
-//    NSInteger month = [components month];
-//    NSInteger day = [components day];
-//    NSInteger hour = [components hour];
-//    NSInteger minute = [components minute];
-//    NSLog(@"%d/%d/%d/ %d:%d", year,month,day,hour, minute);
-    //
+    //Layer rotation initilize
     NSDate *today = [NSDate date];
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"DDD"];
-    daysInYear = [[dateFormat stringFromDate:today] integerValue];
-    daysInYearMaya = daysInYear % 260;
-    dayInYearMaya = daysInYearMaya % 13;
-    monthInYearMaya = daysInYearMaya / 20;
-    NSLog(@"today is %ld. day in year.Maya days is %ld,Maya month is %ld,Maya day is %ld.", (long)daysInYear, (long)daysInYearMaya,(long)monthInYearMaya, (long)dayInYearMaya);
-    //image rotation angle calculate
-    dayAngle = 1 * (dayInYearMaya/13.0);
-    monthAngle = 1 * (monthInYearMaya/20.0);
-    
-    //Initialize the calendario component's rotation property.
-    dayLayer.img_calendario.transform = CGAffineTransformMakeRotation(dayAngle);
-    monthLayer.img_calendario.transform = CGAffineTransformMakeRotation(monthAngle);
+    [self rotateCalendarioWithDate:today];
 	// return the scene
 	return scene;
 }
-
 // on "init" you need to initialize your instance
 -(id) init
 {
@@ -127,7 +102,21 @@ CGFloat monthAngle;
 	}
 	return self;
 }
+// on "dealloc" you need to release all your retained objects
+- (void) dealloc
+{
+	// in case you have something to dealloc, do it in this method
+	// in this particular example nothing needs to be released.
+	// cocos2d will automatically release all the children (Label)
+	
+	// don't forget to call "super dealloc"
+	[super dealloc];
+    //
+    pinchGesture = nil;
+    //
+}
 
+#pragma mark -Gestures(rotate,pinch..)
 -(IBAction)handleRotateGesture:(UIGestureRecognizer *)sender
 {
     CGFloat netRotation = 0.0f;
@@ -185,34 +174,46 @@ CGFloat monthAngle;
 //- (void) motionWasRecognized:(NSNotification*)notif
 - (void)handleShakeMotion:(NSNotification *)notification
 {
-	CABasicAnimation* shake = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-	shake.fromValue = [NSNumber numberWithFloat:-M_PI/32];
-	shake.toValue   = [NSNumber numberWithFloat:+M_PI/32];
-	shake.duration = 0.1;
-	shake.autoreverses = YES;
-	shake.repeatCount = 4;
-//	[self.shakeFeedbackOverlay.layer addAnimation:shake forKey:@"shakeAnimation"];
-	
-//	self.shakeFeedbackOverlay.alpha = 1.0;
-	[UIView animateWithDuration:2.0 delay:0.0
-						options:UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAllowUserInteraction
-					 animations:^{
-//                         self.shakeFeedbackOverlay.alpha = 1.0;
-                     } completion:nil];
+    //id liquid = [CCLiquid actionWithWaves:6 amplitude:20 grid:ccg(15, 10) duration:3];
+    id shaky3D = [CCShaky3D actionWithRange:10 shakeZ:NO grid:ccg(15, 10) duration:5];
+    //id shaky3D = [CCShaky3D actionWithDuration:3.00];
+    
+    //No need to unschedule after 3 seconds since you already set duration-^ to 3 seconds.
+    [self runAction:shaky3D];
+    
+    //Reset mannually rotation
+    NSDate *today = [NSDate date];
+    [CalendarioLayer rotateCalendarioWithDate:today];
 }
-
-// on "dealloc" you need to release all your retained objects
-- (void) dealloc
+#pragma mark -RotateMotion
++ (void)rotateCalendarioWithDate:(NSDate *)dateVaule;
 {
-	// in case you have something to dealloc, do it in this method
-	// in this particular example nothing needs to be released.
-	// cocos2d will automatically release all the children (Label)
-	
-	// don't forget to call "super dealloc"
-	[super dealloc];
+    //	NSDate *date = [NSDate date];
+    //    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //    [dateFormatter setDateFormat:@"HH:mm"];
+    //    NSCalendar *calendar = [NSCalendar currentCalendar];
+    //    NSDateComponents *components = [calendar components:(kCFCalendarUnitYear | kCFCalendarUnitMonth | kCFCalendarUnitDay | kCFCalendarUnitHour | kCFCalendarUnitMinute) fromDate:date];
+    //    NSInteger year = [components year];
+    //    NSInteger month = [components month];
+    //    NSInteger day = [components day];
+    //    NSInteger hour = [components hour];
+    //    NSInteger minute = [components minute];
+    //    NSLog(@"%d/%d/%d/ %d:%d", year,month,day,hour, minute);
     //
-    pinchGesture = nil;
-    // ShakeMotion - Unregister:
-//	[self removeMotionRecognizer];
+//    NSDate *today = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"DDD"];
+    daysInYear = [[dateFormat stringFromDate:dateVaule] integerValue];
+    daysInYearMaya = daysInYear % 260;
+    dayInYearMaya = daysInYearMaya % 13;
+    monthInYearMaya = daysInYearMaya / 20;
+    NSLog(@"today is %ld. day in year.Maya days is %ld,Maya month is %ld,Maya day is %ld.", (long)daysInYear, (long)daysInYearMaya,(long)monthInYearMaya, (long)dayInYearMaya);
+    //image rotation angle calculate
+    dayAngle = 1 * (dayInYearMaya/13.0);
+    monthAngle = 1 * (monthInYearMaya/20.0);
+    
+    //Initialize the calendario component's rotation property.
+    dayLayer.img_calendario.transform = CGAffineTransformMakeRotation(dayAngle);
+    monthLayer.img_calendario.transform = CGAffineTransformMakeRotation(monthAngle);
 }
 @end
