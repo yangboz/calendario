@@ -19,6 +19,7 @@
 //
 CCScene *scene;
 CGSize screenSize;
+CCParticleSystemQuad* particleSystem;
 //Annuluss
 CalAnnulusLayer *monthLayer;//veintena
 CalAnnulusLayer *dayLayer;//trecena
@@ -57,15 +58,15 @@ CGFloat hoursAngle;//3hours
     // ask director the the window size
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
 	//Background particle system
-    
-    CCParticleSystemQuad* system = [CCParticleGalaxy node];
-    system.texture = [[CCTextureCache sharedTextureCache] addImage:@"particle-snow.png"];
-    system.position = ccp(screenSize.width/2, screenSize.height/2);
-    system.posVar = ccp(screenSize.width, screenSize.height);
-    system.startColor = ccc4FFromccc4B(ccc4(arc4random(), arc4random(), arc4random(), 255.0f));
-    system.endColor = ccc4FFromccc4B(ccc4(arc4random(), arc4random(), arc4random(), 255.0f));
-    system.autoRemoveOnFinish = YES;
-    [scene addChild:system];
+    particleSystem = [CCParticleExplosion node];
+    particleSystem.texture = [[CCTextureCache sharedTextureCache] addImage:@"particle-snow.png"];
+    particleSystem.position = ccp(screenSize.width/2, screenSize.height/2);
+    particleSystem.posVar = ccp(screenSize.width, screenSize.height);
+    particleSystem.startColor = ccc4FFromccc4B(ccc4(10.0f, 10.0f, 50.0f, 255.0f));
+    particleSystem.endColor = ccc4FFromccc4B(ccc4(100.0f, 100.0f, 100.0f, 255.0f));
+    particleSystem.autoRemoveOnFinish = YES;
+    particleSystem.duration = -1;
+    [scene addChild:particleSystem];
     /*
     CCSprite *background = [CCSprite spriteWithFile:@"planet-earth-in-space.jpg"];
     [background setPosition: ccp(screenSize.width/2, screenSize.height/2)];

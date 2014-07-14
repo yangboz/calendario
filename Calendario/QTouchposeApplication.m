@@ -72,7 +72,7 @@
 
 - (id)initWithPoint:(CGPoint)point hue:(CGFloat)hue
 {
-    const CGFloat kFingerRadius = 22.0f;
+    const CGFloat kFingerRadius = 32.0f;
     
     if ((self = [super initWithFrame:CGRectMake(point.x-kFingerRadius, point.y-kFingerRadius, 2*kFingerRadius, 2*kFingerRadius)]))
     {
@@ -156,7 +156,7 @@ static void UIWindow_new_didAddSubview(UIWindow *window, SEL _cmd, UIView *view)
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShowNotification:) name:UIKeyboardDidShowNotification object:nil];        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHideNotification:) name:UIKeyboardDidHideNotification object:nil];        
         _touchDictionary = CFDictionaryCreateMutable(NULL, 10, NULL, NULL);
-        _touchHue = 0.01f;
+        _touchHue = 1.10f;
         _alwaysShowTouches = NO;
         
         // In my experience, the keyboard performance is crippled when showing touches on a
