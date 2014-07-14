@@ -15,8 +15,10 @@
 #import "UIResponder+MotionRecognizers.h"
 #import <QuartzCore/QuartzCore.h>
 // CalendarioLayer implementation
-@implementation CalendarioLayer 
-
+@implementation CalendarioLayer
+//
+CCScene *scene;
+CGSize screenSize;
 //Annuluss
 CalAnnulusLayer *monthLayer;//veintena
 CalAnnulusLayer *dayLayer;//trecena
@@ -51,8 +53,24 @@ CGFloat hoursAngle;//3hours
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
-	
+	scene = [CCScene node];
+    // ask director the the window size
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+	//Background particle system
+    
+    CCParticleSystemQuad* system = [CCParticleGalaxy node];
+    system.texture = [[CCTextureCache sharedTextureCache] addImage:@"particle-snow.png"];
+    system.position = ccp(screenSize.width/2, screenSize.height/2);
+    system.posVar = ccp(screenSize.width, screenSize.height);
+    system.startColor = ccc4FFromccc4B(ccc4(arc4random(), arc4random(), arc4random(), 255.0f));
+    system.endColor = ccc4FFromccc4B(ccc4(arc4random(), arc4random(), arc4random(), 255.0f));
+    system.autoRemoveOnFinish = YES;
+    [scene addChild:system];
+    /*
+    CCSprite *background = [CCSprite spriteWithFile:@"planet-earth-in-space.jpg"];
+    [background setPosition: ccp(screenSize.width/2, screenSize.height/2)];
+    [scene addChild: background];
+    */
 	// 'layer' is an autorelease object.
 	CalendarioLayer *layer = [CalendarioLayer node];
 	
@@ -82,7 +100,7 @@ CGFloat hoursAngle;//3hours
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
-		//
+        //
         [self addDateLabel];
         //
         [self updateDateLable:NULL];
@@ -186,11 +204,12 @@ CGFloat hoursAngle;//3hours
 - (void)handleShakeMotion:(NSNotification *)notification
 {
     //id liquid = [CCLiquid actionWithWaves:6 amplitude:20 grid:ccg(15, 10) duration:3];
-    id shaky3D = [CCShaky3D actionWithRange:10 shakeZ:NO grid:ccg(15, 10) duration:5];
+//    id shaky3D = [CCShaky3D actionWithRange:10 shakeZ:NO grid:ccg(7, 5) duration:5];
     //id shaky3D = [CCShaky3D actionWithDuration:3.00];
     
     //No need to unschedule after 3 seconds since you already set duration-^ to 3 seconds.
-    [self runAction:shaky3D];
+//    [monthLayer runAction:shaky3D];
+//    [self runAction:shaky3D];
     
     //Reset mannually rotation
     NSDate *today = [NSDate date];
@@ -247,7 +266,7 @@ CGFloat hoursAngle;//3hours
     dateLabel.position =  ccp( size.width /2 , size.height-30 );
     //
     //add the label as a child to this Layer
-    [self addChild: dateLabel];
+    [scene addChild: dateLabel];
 }
 - (void)updateDateLable:(NSString *)dateValue
 {
@@ -301,6 +320,7 @@ CGFloat hoursAngle;//3hours
     //	NSLog(@"Average input: %f Peak input: %f Low pass results: %f", [recorder averagePowerForChannel:0], [recorder peakPowerForChannel:0], lowPassResults);
     NSLog(@"Mic Blow befor filter:%@",resultStr);
     //@see: http://mobileorchard.com/tutorial-detecting-when-a-user-blows-into-the-mic/
+    /*
 	if (lowPassResults >= 0.25)
     {
 		NSLog(@"Mic blow detected");
@@ -308,5 +328,6 @@ CGFloat hoursAngle;//3hours
         [alertView show];
         
     }
+     */
 }
 @end

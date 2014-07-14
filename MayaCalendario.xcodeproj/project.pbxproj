@@ -29,6 +29,8 @@
 		65F8FAFF19724DD000EC0A7E /* AppIcon72x72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F8FAF119724DD000EC0A7E /* AppIcon72x72@2x.png */; };
 		65F8FB0019724DD000EC0A7E /* AppIcon76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F8FAF219724DD000EC0A7E /* AppIcon76x76.png */; };
 		65F8FB0119724DD000EC0A7E /* AppIcon76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F8FAF319724DD000EC0A7E /* AppIcon76x76@2x.png */; };
+		65F8FB051973A79F00EC0A7E /* planet-earth-in-space.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65F8FB041973A79F00EC0A7E /* planet-earth-in-space.jpg */; };
+		65F8FB071973AB2B00EC0A7E /* particle-snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F8FB061973AB2B00EC0A7E /* particle-snow.png */; };
 		A4882BF716397FC20039CDC4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4882BF616397FC20039CDC4 /* CoreLocation.framework */; };
 		A4882C03163980710039CDC4 /* BSAddressComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = A4882BFA163980710039CDC4 /* BSAddressComponent.m */; };
 		A4882C04163980710039CDC4 /* BSForwardGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A4882BFC163980710039CDC4 /* BSForwardGeocoder.m */; };
@@ -186,6 +188,8 @@
 		65F8FAF119724DD000EC0A7E /* AppIcon72x72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon72x72@2x.png"; sourceTree = "<group>"; };
 		65F8FAF219724DD000EC0A7E /* AppIcon76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon76x76.png; sourceTree = "<group>"; };
 		65F8FAF319724DD000EC0A7E /* AppIcon76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon76x76@2x.png"; sourceTree = "<group>"; };
+		65F8FB041973A79F00EC0A7E /* planet-earth-in-space.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "planet-earth-in-space.jpg"; sourceTree = "<group>"; };
+		65F8FB061973AB2B00EC0A7E /* particle-snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "particle-snow.png"; sourceTree = "<group>"; };
 		A4882BF616397FC20039CDC4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A4882BF9163980710039CDC4 /* BSAddressComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSAddressComponent.h; sourceTree = "<group>"; };
 		A4882BFA163980710039CDC4 /* BSAddressComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSAddressComponent.m; sourceTree = "<group>"; };
@@ -592,6 +596,8 @@
 		A4F2D66D16357A7A003DEA19 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				65F8FB061973AB2B00EC0A7E /* particle-snow.png */,
+				65F8FB041973A79F00EC0A7E /* planet-earth-in-space.jpg */,
 				65F8FAE619724DD000EC0A7E /* AppIcon29x29.png */,
 				65F8FAE719724DD000EC0A7E /* AppIcon29x29@2x.png */,
 				65F8FAE819724DD000EC0A7E /* AppIcon40x40.png */,
@@ -990,6 +996,7 @@
 				65F8FAE119724D9100EC0A7E /* Default-Portrait@2x.png in Resources */,
 				A4F2D66F16357A7A003DEA19 /* Default.png in Resources */,
 				65F8FAFD19724DD000EC0A7E /* AppIcon60x60@2x.png in Resources */,
+				65F8FB051973A79F00EC0A7E /* planet-earth-in-space.jpg in Resources */,
 				65F8FAF719724DD000EC0A7E /* AppIcon40x40@2x.png in Resources */,
 				65F8FAF419724DD000EC0A7E /* AppIcon29x29.png in Resources */,
 				A4F2D67116357A7A003DEA19 /* fps_images.png in Resources */,
@@ -1022,6 +1029,7 @@
 				65F8FAF519724DD000EC0A7E /* AppIcon29x29@2x.png in Resources */,
 				65F8FAFF19724DD000EC0A7E /* AppIcon72x72@2x.png in Resources */,
 				65F8FAE019724D9100EC0A7E /* Default-Portrait.png in Resources */,
+				65F8FB071973AB2B00EC0A7E /* particle-snow.png in Resources */,
 				A4DF6C13163AF0AA001413E4 /* iTunesArtwork@2x.png in Resources */,
 				65F8FB0019724DD000EC0A7E /* AppIcon76x76.png in Resources */,
 				65F8FAE219724D9100EC0A7E /* Default.png in Resources */,
