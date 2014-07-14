@@ -15,6 +15,8 @@
 
 #import "CPMotionRecognizingWindow.h"
 
+#import "QTouchposeApplication.h"
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -114,6 +116,11 @@
 	
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene: [CalendarioLayer scene]];
+    
+    //
+    // For demo purposes, show the touches even when not mirroring to an external display.
+    QTouchposeApplication *touchposeApplication = (QTouchposeApplication *)application;
+    touchposeApplication.alwaysShowTouches = YES;
 }
 
 

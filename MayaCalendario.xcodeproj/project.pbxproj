@@ -31,6 +31,7 @@
 		65F8FB0119724DD000EC0A7E /* AppIcon76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F8FAF319724DD000EC0A7E /* AppIcon76x76@2x.png */; };
 		65F8FB051973A79F00EC0A7E /* planet-earth-in-space.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65F8FB041973A79F00EC0A7E /* planet-earth-in-space.jpg */; };
 		65F8FB071973AB2B00EC0A7E /* particle-snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F8FB061973AB2B00EC0A7E /* particle-snow.png */; };
+		65F8FB0A197430A700EC0A7E /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F8FB09197430A700EC0A7E /* QTouchposeApplication.m */; };
 		A4882BF716397FC20039CDC4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4882BF616397FC20039CDC4 /* CoreLocation.framework */; };
 		A4882C03163980710039CDC4 /* BSAddressComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = A4882BFA163980710039CDC4 /* BSAddressComponent.m */; };
 		A4882C04163980710039CDC4 /* BSForwardGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A4882BFC163980710039CDC4 /* BSForwardGeocoder.m */; };
@@ -190,6 +191,8 @@
 		65F8FAF319724DD000EC0A7E /* AppIcon76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon76x76@2x.png"; sourceTree = "<group>"; };
 		65F8FB041973A79F00EC0A7E /* planet-earth-in-space.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "planet-earth-in-space.jpg"; sourceTree = "<group>"; };
 		65F8FB061973AB2B00EC0A7E /* particle-snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "particle-snow.png"; sourceTree = "<group>"; };
+		65F8FB08197430A700EC0A7E /* QTouchposeApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTouchposeApplication.h; sourceTree = "<group>"; };
+		65F8FB09197430A700EC0A7E /* QTouchposeApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTouchposeApplication.m; sourceTree = "<group>"; };
 		A4882BF616397FC20039CDC4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A4882BF9163980710039CDC4 /* BSAddressComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSAddressComponent.h; sourceTree = "<group>"; };
 		A4882BFA163980710039CDC4 /* BSAddressComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSAddressComponent.m; sourceTree = "<group>"; };
@@ -575,6 +578,8 @@
 		A4F2D66C16357A7A003DEA19 /* Calendario */ = {
 			isa = PBXGroup;
 			children = (
+				65F8FB08197430A700EC0A7E /* QTouchposeApplication.h */,
+				65F8FB09197430A700EC0A7E /* QTouchposeApplication.m */,
 				A4882C1516398E930039CDC4 /* Recognizers */,
 				A4882C08163980780039CDC4 /* ForwardGeoCoder */,
 				A4EDE85B1638214B00DD88C8 /* components */,
@@ -1046,6 +1051,7 @@
 				A4F2D68516357A7A003DEA19 /* CCAction.m in Sources */,
 				A4F2D68816357A7A003DEA19 /* CCActionCamera.m in Sources */,
 				A4F2D68B16357A7A003DEA19 /* CCActionEase.m in Sources */,
+				65F8FB0A197430A700EC0A7E /* QTouchposeApplication.m in Sources */,
 				A4F2D68E16357A7A003DEA19 /* CCActionGrid.m in Sources */,
 				A4F2D69116357A7A003DEA19 /* CCActionGrid3D.m in Sources */,
 				A4F2D69416357A7A003DEA19 /* CCActionInstant.m in Sources */,

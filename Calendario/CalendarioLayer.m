@@ -208,7 +208,6 @@ CGFloat hoursAngle;//3hours
     //id shaky3D = [CCShaky3D actionWithDuration:3.00];
     
     //No need to unschedule after 3 seconds since you already set duration-^ to 3 seconds.
-//    [monthLayer runAction:shaky3D];
 //    [self runAction:shaky3D];
     
     //Reset mannually rotation
@@ -266,7 +265,8 @@ CGFloat hoursAngle;//3hours
     dateLabel.position =  ccp( size.width /2 , size.height-30 );
     //
     //add the label as a child to this Layer
-    [scene addChild: dateLabel];
+//    [scene addChild: dateLabel];
+    [scene addChild:dateLabel z:-1];
 }
 - (void)updateDateLable:(NSString *)dateValue
 {

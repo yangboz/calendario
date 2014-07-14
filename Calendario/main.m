@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AppDelegate.h"
+#import "QTouchposeApplication.h"
+
 int main(int argc, char *argv[]) {
-    
+    /*
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     int retVal = UIApplicationMain(argc, argv, nil, @"AppDelegate");
     [pool release];
     return retVal;
+    */
+
+    return UIApplicationMain(argc, argv,
+                                 NSStringFromClass([QTouchposeApplication class]),
+                                 NSStringFromClass([AppDelegate class]));
 }
