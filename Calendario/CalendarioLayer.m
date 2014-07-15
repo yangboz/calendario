@@ -214,6 +214,8 @@ CGFloat hoursAngle;//3hours
     //Reset mannually rotation
     NSDate *today = [NSDate date];
     [CalendarioLayer rotateCalendarioWithDate:today];
+    //Update dateLabel
+    [self updateDateLable:NULL];
 }
 #pragma mark -RotateMotion
 + (void)rotateCalendarioWithDate:(NSDate *)dateValue;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		652BD64219755E3900977443 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = 652BD64119755E3900977443 /* Default-568h.png */; };
 		65F8FADD19724D9100EC0A7E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F8FAD619724D9100EC0A7E /* Default-568h@2x.png */; };
 		65F8FADE19724D9100EC0A7E /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F8FAD719724D9100EC0A7E /* Default-Landscape.png */; };
 		65F8FADF19724D9100EC0A7E /* Default-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F8FAD819724D9100EC0A7E /* Default-Landscape@2x.png */; };
@@ -166,6 +167,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		652BD64119755E3900977443 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
 		65F8FAD51971507900EC0A7E /* Pref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pref.h; sourceTree = "<group>"; };
 		65F8FAD619724D9100EC0A7E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		65F8FAD719724D9100EC0A7E /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
@@ -601,6 +603,7 @@
 		A4F2D66D16357A7A003DEA19 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				652BD64119755E3900977443 /* Default-568h.png */,
 				65F8FB061973AB2B00EC0A7E /* particle-snow.png */,
 				65F8FB041973A79F00EC0A7E /* planet-earth-in-space.jpg */,
 				65F8FAE619724DD000EC0A7E /* AppIcon29x29.png */,
@@ -1032,6 +1035,7 @@
 				65F8FAFA19724DD000EC0A7E /* AppIcon57x57.png in Resources */,
 				A4DF6C12163AF0AA001413E4 /* iTunesArtwork.png in Resources */,
 				65F8FAF519724DD000EC0A7E /* AppIcon29x29@2x.png in Resources */,
+				652BD64219755E3900977443 /* Default-568h.png in Resources */,
 				65F8FAFF19724DD000EC0A7E /* AppIcon72x72@2x.png in Resources */,
 				65F8FAE019724D9100EC0A7E /* Default-Portrait.png in Resources */,
 				65F8FB071973AB2B00EC0A7E /* particle-snow.png in Resources */,
@@ -1229,7 +1233,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: bo zhou (63X9SGW3ZX)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
